@@ -26,8 +26,12 @@
 
 main{
     overflow: hidden;
-    background: repeating-radial-gradient(#544a4a, #000000 50px);
+    /* background: repeating-radial-gradient(#544a4a, #000000 50px); */
 /* backdrop-filter: blur(10px); */
+background: rgb(0,0,0);
+background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 100%);
+background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,250,255,1) 52%, rgba(0,0,0,1) 100%);
 }
 
 
@@ -50,7 +54,7 @@ main{
 .face {
     
     position: absolute;
-    border: 1px solid black;
+    border: 2px solid rgb(255, 255, 255);
     box-sizing: border-box;
   
 
@@ -60,6 +64,7 @@ main{
 .face-reflex{
     background-color: rgba(255, 255, 255, 0);
     transform: translateZ(51px);
+    background: radial-gradient(circle,rgba(199, 198 ,243, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
 }
 .float {
     padding: 5vmax;
