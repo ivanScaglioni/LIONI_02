@@ -71,29 +71,38 @@ export default function Projects() {
 
           </div>
         </div>
-                
         <div className="min-w-[100vw]">
-          <div className="flex flex-wrap items-center justify-center">
-            <div>
-
-              <Image alt="" src={project.image} width={300} height={100}/>
-              <div className="w-92">
-                <div>{project.title}</div>
-                <div>{project.description}</div>
-              </div>
+          <div className=" flex items-center justify-center">
+            <div className="project flex  justify-center  items-center">
+                <div className="img-project">
+                  <Image alt="" src={project.image} width={450} height={250}/>
+                </div>
+              
+                <div className="max-w-[450px]">
+                  <div className="title-project">{project.title}</div>
+                  <div className="description-project">{project.description}</div>
+                </div>
+          
             </div>
 
           </div>
         </div>
-
         <div className="min-w-[100vw]">
-          <div className="flex flex-col w-full items-center">
-          <Image alt="" src={project.image} width={500} height={300}/>
-            <div>{project.title}</div>
-            <div>{project.description}</div>
+          <div className=" flex items-center justify-center">
+            <div className="project flex  justify-center  items-center">
+                <div className="img-project">
+                  <Image alt="" src={project.image} width={450} height={250}/>
+                </div>
+              
+                <div className="max-w-[450px]">
+                  <div className="title-project">{project.title}</div>
+                  <div className="description-project">{project.description}</div>
+                </div>
+          
+            </div>
+
           </div>
         </div>
-                
 
         {/* {projects !== null &&
           projects.map((project, index) => (

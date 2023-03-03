@@ -3,7 +3,7 @@ import {
   useRef,
   useState,
   useEffect,
-
+TouchEvent
 } from "react";
 
 import { AppContextLioniType } from "../types/types.contex";

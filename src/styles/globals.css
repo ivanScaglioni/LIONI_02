@@ -46,6 +46,7 @@ main {
     position: relative;
     width: 100vw;
     height: 100vh;
+    height: 100svh;
     transform-style: preserve-3d;
     perspective: 20000px;
     perspective-origin: center;
@@ -216,11 +217,28 @@ main {
     box-shadow: 0px 0px 30px 0 #fff, 0px 0px 30px 0 #1d0dca17;
 }
 
+.button-reset{
+    position: absolute;
+    display: none;
+    backdrop-filter: blur(15px);
+    padding: 10px;
+    font-size: 22;
+    background: #363636;
+    border-radius: 5px;
+    border: 1px solid white;
+    box-sizing: border-box;
+    bottom: 0px;
+    margin-bottom: 30px;
+}
+
 
 @media screen and (max-width: 600px ) {
     
      #navbar {
         display: none;
+     }
+     .button-reset{
+        display: flex;
      }
 }
 
