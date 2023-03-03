@@ -1,0 +1,35 @@
+
+.project{
+  
+
+    color: #00ffee;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #080027;
+    border-radius: 5px;
+ 
+    gap: 10px;
+
+
+
+
+}
+
+.description-project{
+
+    
+
+}
+
+
+.title-project{
+    text-align: center;
+
+}
+
+@media screen and (max-width: 750px ) {
+    
+    .project{
+        flex-direction: column;
+    }
+}

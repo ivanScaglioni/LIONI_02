@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef,useContext } from "react";
 import { AppContextLioni } from "@/context/AppContext";
-import { AppContextLioniType } from "@/context/types.contex";
+import { AppContextLioniType } from "@/types/types.contex";
 
 
 import Navbar from "@/components/Navbar";
@@ -18,14 +18,15 @@ function Layout({
   const { leave, calculateAngle, cardRef, reflexRef } = useContext(AppContextLioni) as AppContextLioniType ; 
 
   return (
-    <div onMouseMove={calculateAngle} onMouseLeave={leave}>
+    <div onMouseMove={calculateAngle} onMouseLeave={leave} >
+
       <div id="card" ref={cardRef} className="cube absolute">
         <span
           id="reflex"
           ref={reflexRef}
           className="face face-reflex absolute w-screen h-screen z-[100]"
         ></span>
-        <div className="face float">
+        <div className="face float" >
           <Navbar />
           {children}
         </div>
