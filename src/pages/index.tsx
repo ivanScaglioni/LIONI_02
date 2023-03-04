@@ -1,7 +1,9 @@
+import { useContext, useEffect, useState} from "react"
+
 import Head from "next/head";
-import { useContext, useEffect, useState} from "react";
 import { AppContextLioni } from "@/context/AppContext";
 import { AppContextLioniType } from "@/types/types.contex";
+
 import Layout from "@/layout";
 import image from "public/code2.jpg";
 import Home from "@/components/view/Home";
@@ -10,7 +12,7 @@ import UAParser from "ua-parser-js";
 
 export default function Lioni() {
 
-  const { elevatorRef} = useContext(
+  const { elevatorRef } = useContext(
     AppContextLioni
   ) as AppContextLioniType;
 
@@ -31,7 +33,6 @@ export default function Lioni() {
     if (result.device.type === "mobile" || result.device.type === "tablet") {
       setIsMobil(true);
     }
-
    
   }, []);
 
@@ -51,6 +52,8 @@ export default function Lioni() {
       </div>
     </Layout>
   );
+
+
 
 
   
