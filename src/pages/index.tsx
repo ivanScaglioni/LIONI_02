@@ -1,7 +1,5 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
-import { useContext, useEffect, useState, TouchEvent } from "react";
+import { useContext, useEffect, useState} from "react";
 import { AppContextLioni } from "@/context/AppContext";
 import { AppContextLioniType } from "@/types/types.contex";
 import Layout from "@/layout";
@@ -11,6 +9,11 @@ import Projects from "@/components/view/Projects";
 import UAParser from "ua-parser-js";
 
 export default function Lioni() {
+
+  const { elevatorRef} = useContext(
+    AppContextLioni
+  ) as AppContextLioniType;
+
   const [isMobil, setIsMobil] = useState(false);
 
   useEffect(() => {
@@ -32,11 +35,23 @@ export default function Lioni() {
    
   }, []);
 
-  const { elevatorRef} = useContext(
-    AppContextLioni
-  ) as AppContextLioniType;
 
-  
+  const layout = isMobil ? (
+    <Layout isMobile={true} imagen={image.src}>
+      <div id="elevator" ref={elevatorRef}>
+        <Home />
+        <Projects />
+      </div>
+    </Layout>
+  ) : (
+    <Layout isMobile={false} imagen={image.src}>
+      <div id="elevator" ref={elevatorRef}>
+        <Home />
+        <Projects />
+      </div>
+    </Layout>
+  );
+
 
   
 
@@ -48,32 +63,7 @@ export default function Lioni() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        {isMobil ? (
-          <Layout isMobile={true} imagen={image.src}>
-            <div
-              id="elevator"
-              ref={elevatorRef}
-            >
-              <Home />
-
-              <Projects />
-            </div>
-          </Layout>
-        ) : (
-          <Layout isMobile={false} imagen={image.src}>
-            <div
-              id="elevator"
-              ref={elevatorRef}
-
-            >
-              <Home />
-
-              <Projects />
-            </div>
-          </Layout>
-        )}
-      </main>
+      <main>{layout}</main>
     </>
   );
 }

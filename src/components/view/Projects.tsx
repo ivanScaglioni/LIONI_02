@@ -79,13 +79,13 @@ export default function Projects() {
                     </div>
                     <div className="links-project flex gap-5 justify-center m-6">
                       {project.website && (
-                        <a href={project.website} target="_blank">
+                        <a href={project.website} target="_blank" rel="noreferrer">
                         
-                          website
+                          WebSite
                         </a>
                       )}
                       {project.repo && (
-                        <a href={project.repo} target="_blank">
+                        <a href={project.repo} target="_blank"  rel="noreferrer">
                         
                           GitHub
                         </a>
