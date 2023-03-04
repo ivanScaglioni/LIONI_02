@@ -60,7 +60,7 @@ export default function Projects() {
                 <div className="project flex  justify-center gap-7  items-center">
                   <div className="img-project min-w-max  h-full object-cover">
                     {project.image &&
-                        <Image className="object-cover min-h-full"
+                        <Image className="object-cover img-project"
                         alt=""
                         src={project.image}
                         width={450}
