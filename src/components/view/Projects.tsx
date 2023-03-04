@@ -58,9 +58,9 @@ export default function Projects() {
             <div className="min-w-[100vw]" key={index}>
               <div className=" flex items-start justify-center">
                 <div className="project flex  justify-center gap-7  items-center">
-                  <div className="img-project min-w-max ">
+                  <div className="img-project min-w-max  h-full object-cover">
                     {project.image &&
-                        <Image
+                        <Image className="object-cover min-h-full"
                         alt=""
                         src={project.image}
                         width={450}
@@ -70,7 +70,7 @@ export default function Projects() {
                     
                   </div>
 
-                  <div className="max-w-[450px] min-w-[400px]">
+                  <div className="max-w-[450px] min-w-[400px] items-center">
 
 
                     <div className="title-project">{project.title}</div>
