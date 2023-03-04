@@ -30,14 +30,14 @@ export function AppContextProvider({
     setElevator(elevatorRef.current);
     setProjectView(projectViewRef.current);
     setHome(homeRef.current);
-    console.log(navigator)
-
-
     // window.addEventListener("keydown",(e)=>(handleKeyDown(e)))
     
   }, []);
 
   const calculateAngle = (e: React.MouseEvent<HTMLDivElement>) => {
+    
+    
+    
     if (!card || !reflex || !home) return;
     // if (!card) return;
     // Get the x position of the users mouse, relative to the button itself
@@ -150,32 +150,11 @@ export function AppContextProvider({
 
       }
     }
-    console.log(currentView)
+
 
   };
 
 
-    // keyboard scrolling
-
-    const handleKeyDown = (e:KeyboardEvent)=>{
-      const key:string = e.key.toUpperCase()
-      if ( key === "ARROWUP" || key === "W") {
-  
-        changeView("UP")
-        
-      }else if( key === "ARROWDOWN" || key === "S") {
-        changeView("HELL")
-  
-      }else if( key === "ArrowLeft" || key === "A") {
-        changeProject("LEFT")
-  
-      }else if( key === "ARROWRIGHT" || key === "D") {
-        changeProject("RIGHT")
-      }
-  
-    }
-  
-  
 
   return (
     <AppContextLioni.Provider

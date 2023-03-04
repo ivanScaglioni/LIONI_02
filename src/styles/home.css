@@ -23,7 +23,7 @@
 
 .card-home::after{
     inset: -2rem ;
-    background-color: #ffffff89;
+    background-color: #6c6c6c8b;
     transform: translateZ(-50px);
 
 }
@@ -31,13 +31,9 @@
 
 
 
-.name-web{
-    color: #ffffff;
-
-}
 
 .name{
-
+    color: #ffffff;
     transform-style: preserve-3d;
     transform: 
     perspective(5000px)
@@ -55,23 +51,23 @@
 .name::before{
     background-color: #242526;  
 
-    inset: -0.5rem;
+    inset: -1rem;
     /* filter: blur(5px); */
     opacity: 1;
   
-    transform: translateZ(-25px);
+     transform: translateZ(-50px); 
 }
 
 
 .name::after{
-    inset: -1rem ;
-   background-color: #f0f6f7;
-   /* filter: blur(15px); */
-    transform: translateZ(-100px);
+    inset: -0.2rem ;
+   background-color: #ffffff4f;
+   filter: blur(20px);
+    transform: translateZ(-48px);
 }
 
 .web{
-    color: #242526;
+    color: #ffffff00;
     margin-top: 20px;
     transform-style: preserve-3d;
     transform: 
@@ -150,6 +146,7 @@ animation-delay: 2s;
     inset: -0.5rem;
 
     background-color: #242526;
+    background-color: #000000;
     transform: translateZ(-50px);
 }
 

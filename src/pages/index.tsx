@@ -1,47 +1,44 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, TouchEvent } from "react";
 import { AppContextLioni } from "@/context/AppContext";
 import { AppContextLioniType } from "@/types/types.contex";
 import Layout from "@/layout";
-import image from "public/code2.png";
+import image from "public/code2.jpg";
 import Home from "@/components/view/Home";
 import Projects from "@/components/view/Projects";
-
-
-import { TouchEvent } from "react";
+import UAParser from "ua-parser-js";
 
 export default function Lioni() {
-  const { elevatorRef, changeView } = useContext(AppContextLioni) as AppContextLioniType;
+  const [isMobil, setIsMobil] = useState(false);
 
-  let coorStart = [0, 0];
+  useEffect(() => {
+    // obtener la cadena de agente de usuario del navegador del visitante
+    const userAgentString: string = window.navigator.userAgent;
 
-  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
-   
-    coorStart[0] = e.changedTouches[0].clientX;
-    coorStart[1] = e.changedTouches[0].clientY;
-  
-  };
+    // analizar la cadena de agente de usuario
+    const parser: UAParser = new UAParser(userAgentString);
+    const result: UAParser.IResult = parser.getResult();
 
-  const handleTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
+    // obtener información sobre el dispositivo
+    const device: UAParser.IDevice = result.device;
 
-    const deltaX = Math.abs(coorStart[0] - e.changedTouches[0].clientX);
-    const deltaY = Math.abs(coorStart[1] - e.changedTouches[0].clientY);
-
-    if( deltaY > deltaX && deltaY > 50 ){
-     
-      if(coorStart[1] - e.changedTouches[0].clientY > 0 ){
-
-        changeView("UP")
-
-      }else{
-
-        changeView("HELL")
-
-      }
+    
+    if (result.device.type === "mobile" || result.device.type === "tablet") {
+      setIsMobil(true);
     }
-  };
+
+   
+  }, []);
+
+  const { elevatorRef} = useContext(
+    AppContextLioni
+  ) as AppContextLioniType;
+
+  
+
+  
 
   return (
     <>
@@ -52,23 +49,30 @@ export default function Lioni() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-   
-        <Layout imagen={image.src}>
+        {isMobil ? (
+          <Layout isMobile={true} imagen={image.src}>
+            <div
+              id="elevator"
+              ref={elevatorRef}
+            >
+              <Home />
 
-          <div
-            id="elevator"
-            ref={elevatorRef}
-            onTouchEnd={(e) => handleTouchEnd(e)}
-            onTouchStart={(e) => handleTouchStart(e)}
-      
-          >
- 
-            <Home  />
+              <Projects />
+            </div>
+          </Layout>
+        ) : (
+          <Layout isMobile={false} imagen={image.src}>
+            <div
+              id="elevator"
+              ref={elevatorRef}
 
+            >
+              <Home />
 
-            <Projects />
-          </div>
-        </Layout>
+              <Projects />
+            </div>
+          </Layout>
+        )}
       </main>
     </>
   );
