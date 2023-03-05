@@ -206,14 +206,14 @@ main {
     box-sizing: border-box;
     color: #ffffff;
     justify-content: center;
-    transition: 0.5s;
+    transition: 0.2s;
     padding: 3px;
     opacity: 0.5;
 
 
 }
 
-.button-67:hover {
+.button-67:active {
     opacity: 1;
     background: #ffffff;
     color: #000000;

@@ -3,9 +3,19 @@ import Image from "next/image";
 import { projectType } from "@/types/types.project";
 import { AppContextLioni } from "@/context/AppContext";
 import { AppContextLioniType } from "@/types/types.contex";
+import projectsDB from "@/db/projects.json";
+
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  repo?: string | null;
+  website?: string | null;
+}
 
 export default function Projects() {
-  const [projects, setProjects] = useState<projectType[] | null>(null);
+
+  const [projects, setProjects] = useState(projectsDB);
 
   const { projectViewRef, changeProject } = useContext(
     AppContextLioni
@@ -16,13 +26,15 @@ export default function Projects() {
   useEffect(() => {
     const data = async () => {
       const res = await fetch(
-        "https://sheet.best/api/sheets/6a28288c-03f1-4f51-a250-d62ff29bfa6c"      );
-      const allProject = await res.json();
-      console.log(allProject)
-      setProjects(allProject);
+        "https://sheet.best/api/sheets/6a28288c-03f1-4f51-a250-d62ff29bfa6c"
+      );
+      
+      if (res.status < 400) {
+        const allProject = await res.json();
+        setProjects(allProject);
+      }
     };
     data();
-  
   }, []);
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
@@ -57,40 +69,50 @@ export default function Projects() {
           projects.map((project, index) => (
             <div className="min-w-[100vw]" key={index}>
               <div className=" flex items-start justify-center">
-                <div className="project flex  justify-center gap-7  items-center">
+                <div className="project flex  ">
                   <div className="img-project min-w-max  h-full object-cover">
-                    {project.image &&
-                        <Image className="object-cover img-project"
+                    {project.image && (
+                      <Image
+                        className="object-cover img-project"
                         alt=""
                         src={project.image}
                         width={450}
                         height={200}
                       />
-                    }
-                    
+                    )}
                   </div>
 
-                  <div className="max-w-[450px] min-w-[400px] items-center">
-
-
+                  <div className="body max-w-[450px] min-w-[400px] flex flex-wrap">
                     <div className="title-project">{project.title}</div>
+
                     <div className="description-project">
                       {project.description}
                     </div>
-                    <div className="links-project flex gap-5 justify-center m-6">
-                      {project.website && (
-                        <a href={project.website} target="_blank" rel="noreferrer">
-                        
-                          WebSite
-                        </a>
-                      )}
-                      {project.repo && (
-                        <a href={project.repo} target="_blank"  rel="noreferrer">
-                        
-                          GitHub
-                        </a>
-                      )}
-                    </div>
+
+                        <div className="links-project flex">
+                          {project.website && (
+                            <a
+                              href={project.website}
+                              className="link"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              WebSite
+                            </a>
+                          )}
+
+                          {project.repo && (
+                            <a
+                              href={project.repo}
+                              className="link"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              GitHub
+                            </a>
+                          )}
+                        </div>
+                 
                   </div>
                 </div>
               </div>

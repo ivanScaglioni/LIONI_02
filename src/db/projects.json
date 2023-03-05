@@ -1,0 +1,26 @@
+[
+    {
+        "title":"e-Comerce",
+        "description":"Build a website to sell products easy to use for users and administrators. (coming soon)",
+        "image":"https://res.cloudinary.com/ivanscacloud/image/upload/v1677961635/lioni/project/eCom-new-PHOTO_rpwmt2.png",
+        "repo":null,
+        "website":null
+    },
+    {
+        "title":"Rick and Morty",
+        "description":"A web page that consumes the REST API of rickandmortyapi.com using React.js and using the SPA methodology so that the interactivity with the page is as fast as possible. (coming soon)",
+        "image":"https://res.cloudinary.com/ivanscacloud/image/upload/v1677961634/lioni/project/b6740400-92d4-11ea-8a13-d5f6e0558e9b_xxkafl.png",
+        "repo":null,
+        "website":null
+    },
+    {
+        
+
+        "title":"Good Food",
+        "description":"Interactive menu of a restaurant created with react.js - tailwind css - vite.js",
+        "image":"https://res.cloudinary.com/ivanscacloud/image/upload/v1675227777/lioni/project/goodfood_uwqbcd.jpg",
+        "repo":"https://github.com/ivanScaglioni/goodfood",
+        "website":"https://ivanscaglioni.github.io/goodfood/"
+    }
+
+]

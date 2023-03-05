@@ -1,6 +1,5 @@
 
 .project{
-  
 
     color: #ffffff;
     background-color:#161718;
@@ -8,27 +7,78 @@
     overflow: hidden;
     text-align: center;
     box-sizing: border-box;
-    margin-inline: max(3vh, 1rem) 1.5rem; 
+    justify-content: center;
+    align-items: center;
+    
 
+   
 }
 
 .description-project{
     font-size: clamp(1rem, 4vw + .5rem , 1.3rem);
     color: #cbcbcb;
-    margin-inline: max(3vh, 1rem) 1.5rem;
+    
+    min-width: 100%;
 
 }
 
 
 
 .title-project{
-    font-size: clamp(2rem, 5vw + .5rem , 3rem);
+    min-width: 100%;
+
+    font-size: clamp(2rem, 5vw + .5rem , 2.5rem);
 
 }
 
-links-project{
-    font-size: clamp(1rem, 4vw + .5rem , 1.4rem);
+.body{
+ 
+    min-height: 300px;
+    justify-content: flex-start;
+    padding-inline: clamp(0.5rem, 4vw + .5rem , 1rem);;
+  
 }
+
+
+
+
+.links-project{
+    
+ 
+align-self: flex-end;
+    width: 100%;
+    justify-content: space-around;
+    height: 100%;
+
+
+}
+
+.link{
+ 
+    background: #363636;
+    border-radius: 5px;
+    border: 1px solid white;
+    box-sizing: border-box;
+    color: #ffffff;
+    transition: 0.2s;
+    padding-inline: 10px;
+    padding-block: 3px;
+    opacity: 1;
+    margin-bottom: 4PX;
+    font-size: clamp(1rem, 4vw + .5rem , 1.1rem);
+
+
+}
+.link:hover{
+
+    opacity: 1;
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0px 0px 15px 0 #fff, 0px 0px 15px 0 #1d0dca17;
+ 
+    
+}
+
 .img-project{
     max-height: 300px;
     height: 100vh;
@@ -37,5 +87,13 @@ links-project{
     
     .project{
         flex-direction: column;
+        min-height: 700px;
+        justify-content: flex-start;
+
     }
+    .body{
+        min-height: 400px;
+    }
+  
+    
 }
